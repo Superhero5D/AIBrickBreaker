@@ -14,3 +14,5 @@ class Game:
         self.score = 0
 
 class Player(object):
+class Bricks(object):
+class Ball(object):
