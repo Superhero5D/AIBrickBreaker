@@ -24,12 +24,13 @@ def define_parameters():
 
 class Game:
     """ Initialize the game"""
-
     def __init__(self, game_width, game_height):
         pygame.display.set_caption('BrickBreaker')
+
         self.game_width = game_width
         self.game_height = game_height
         self.gameDisplay = pygame.display.set_mode((game_width, game_height))
+        self.bg = pygame.image.load('img/bricks.jpeg')
         self.player = Player(self)
         self.bricks = Bricks()
         self.ball = Ball()
@@ -49,4 +50,9 @@ class Player(object):
             self.y_brick=ypos
             self.image=pygame.image.load('')
 
-    #class Ball(object):
+    class Ball(object):
+        def __init__(self, game, xpos, ypos):
+            self.x_ball=xpos
+            self.y_ball=ypos
+            self.image=pygame.image.load('img/basketBall.png')
+
