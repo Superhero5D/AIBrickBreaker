@@ -46,13 +46,13 @@ class Player(object):
 
     class Bricks(object):
         def __init__(self, game, xpos, ypos):
-            self.x_brick=xpos
-            self.y_brick=ypos
+            self.x_brick = xpos
+            self.y_brick = ypos
             self.image=pygame.image.load('')
 
     class Ball(object):
         def __init__(self, game, xpos, ypos):
-            self.x_ball=xpos
-            self.y_ball=ypos
+            self.x_ball = xpos
+            self.y_ball = ypos
             self.image=pygame.image.load('img/basketBall.png')
 
