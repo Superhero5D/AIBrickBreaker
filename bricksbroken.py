@@ -1,6 +1,6 @@
 import pygame
 import datetime
-
+import logging
 
 def define_parameters():
     def define_parameters():
@@ -21,7 +21,23 @@ def define_parameters():
         params['plot_score'] = True
         params['log_path'] = 'logs/scores_' + str(datetime.datetime.now().strftime("%Y%m%d%H%M%S")) + '.txt'
         return params
+def find_bricks(filename):
+    logging.debug("Starting Program")
+    brickline = []
+    row = 0;
+    with open(filename, 'r') as f:
+        for line in f:
+            col = []
+            for i in range(0, len(line)-1, 2):
+                if line[i] + line[i+1] == "~~":
+                    col[i] = 0
+                brickline[row] += col[i]
+    return brickline
 
+
+
+
+print (find_bricks('Levels/levelOne.txt'))
 class Game:
     """ Initialize the game"""
     def __init__(self, game_width, game_height):
@@ -32,8 +48,8 @@ class Game:
         self.gameDisplay = pygame.display.set_mode((game_width, game_height))
         self.bg = pygame.image.load('img/bricks.jpeg')
         self.player = Player(self)
-        self.bricks = Bricks()
-        self.ball = Ball()
+       # self.bricks = Bricks()
+     #   self.ball = Ball()
         self.score = 0
         self.level = 1
         self.timer = 0
@@ -44,15 +60,16 @@ class Player(object):
         x = 0.45 * game.game_width
         y = 0.1 * game.game_height
 
-    class Bricks(object):
-        def __init__(self, game, xpos, ypos):
-            self.x_brick = xpos
-            self.y_brick = ypos
-            self.image=pygame.image.load('')
+   # class Bricks(object):
+     #   def __init__(self):
 
-    class Ball(object):
-        def __init__(self, game, xpos, ypos):
-            self.x_ball = xpos
-            self.y_ball = ypos
-            self.image=pygame.image.load('img/basketBall.png')
+        #def levels(self):
+
+
+    #class Ball(object):
+    #    def __init__(self, game, xpos, ypos):
+    #        self.x_ball = xpos
+     #       self.y_ball = ypos
+     #       self.image=pygame.image.load('img/basketBall.png')
+
 
