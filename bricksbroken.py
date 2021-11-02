@@ -24,7 +24,7 @@ def define_parameters():
 def find_bricks(filename):
     logging.debug("Starting Program")
     brickline = []
-    row = 0;
+    row = 0
     with open(filename, 'r') as f:
         for line in f:
             col = []
@@ -33,9 +33,6 @@ def find_bricks(filename):
                     col[i] = 0
                 brickline[row] += col[i]
     return brickline
-
-
-
 
 print (find_bricks('Levels/levelOne.txt'))
 class Game:
@@ -49,7 +46,7 @@ class Game:
         self.bg = pygame.image.load('img/bricks.jpeg')
         self.player = Player(self)
        # self.bricks = Bricks()
-     #   self.ball = Ball()
+     #self.ball = Ball()
         self.score = 0
         self.level = 1
         self.timer = 0
