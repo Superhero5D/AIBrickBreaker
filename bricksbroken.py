@@ -1,39 +1,28 @@
 import pygame
+pygame.init()
 import datetime
 import logging
+import ctypes
 
-def define_parameters():
-    def define_parameters():
-        params = dict()
-        # Neural Network
-        params['epsilon_decay_linear'] = 1 / 100
-        params['learning_rate'] = 0.00013629
-        params['first_layer_size'] = 200  # neurons in the first layer
-        params['second_layer_size'] = 20  # neurons in the second layer
-        params['third_layer_size'] = 50  # neurons in the third layer
-        params['episodes'] = 250
-        params['memory_size'] = 2500
-        params['batch_size'] = 1000
-        # Settings
-        params['weights_path'] = 'weights/weights.h5'
-        params['train'] = False
-        params["test"] = True
-        params['plot_score'] = True
-        params['log_path'] = 'logs/scores_' + str(datetime.datetime.now().strftime("%Y%m%d%H%M%S")) + '.txt'
-        return params
+
 def find_bricks(filename):
     logging.debug("Starting Program")
     brickline = []
-    row = 0;
+    #row = 0;
     with open(filename, 'r') as f:
         for line in f:
             col = []
             for i in range(0, len(line)-1, 2):
                 if line[i] + line[i+1] == "~~":
-                    col[i] = 0
-                brickline[row] += col[i]
+                    col.append(0)
+                elif line[i] + line[i+1] == "1R":
+                    col.append(11)
+                elif line[i] + line[i+1] == "2R":
+                    col.append(12)
+                elif line[i] + line[i + 1] == "3R":
+                    col.append(13)
+            brickline.append(col)
     return brickline
-
 
 
 
@@ -45,25 +34,17 @@ class Game:
 
         self.game_width = game_width
         self.game_height = game_height
-        self.gameDisplay = pygame.display.set_mode((game_width, game_height))
+        self.pygame.display.set_mode((0,0),pygame.FULLSCREEN)
         self.bg = pygame.image.load('img/bricks.jpeg')
-        self.player = Player(self)
        # self.bricks = Bricks()
      #   self.ball = Ball()
         self.score = 0
         self.level = 1
         self.timer = 0
 
-
-class Player(object):
-    def __init__(self, game):
-        x = 0.45 * game.game_width
-        y = 0.1 * game.game_height
-
-   # class Bricks(object):
-     #   def __init__(self):
-
-        #def levels(self):
+#class Bricks(object):
+    #def placebrick:
+     #   for i
 
 
     #class Ball(object):
