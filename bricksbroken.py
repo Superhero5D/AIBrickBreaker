@@ -8,7 +8,11 @@ import ctypes
 def find_bricks(filename):
     logging.debug("Starting Program")
     brickline = []
+<<<<<<< HEAD
+    row = 0
+=======
     #row = 0;
+>>>>>>> 2ef8218cd169612532022ce594afede367457a5e
     with open(filename, 'r') as f:
         for line in f:
             col = []
@@ -24,8 +28,11 @@ def find_bricks(filename):
             brickline.append(col)
     return brickline
 
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 2ef8218cd169612532022ce594afede367457a5e
 print (find_bricks('Levels/levelOne.txt'))
 class Game:
     """ Initialize the game"""
@@ -37,7 +44,7 @@ class Game:
         self.pygame.display.set_mode((0,0),pygame.FULLSCREEN)
         self.bg = pygame.image.load('img/bricks.jpeg')
        # self.bricks = Bricks()
-     #   self.ball = Ball()
+     #self.ball = Ball()
         self.score = 0
         self.level = 1
         self.timer = 0
